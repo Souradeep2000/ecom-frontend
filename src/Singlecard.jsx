@@ -80,7 +80,6 @@ function Singlecard() {
 
   const load = () => {
     setPage((prev) => prev + 1);
-    console.log(page);
   };
 
   return (

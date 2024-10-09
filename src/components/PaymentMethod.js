@@ -8,7 +8,7 @@ import PaymentIcon from "@material-ui/icons/Payment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function PaymentMethod() {
-  const [paymentMethod, setPaymentMethod] = useState("PayPal");
+  const [paymentMethod, setPaymentMethod] = useState("online");
   const dispatch = useDispatch();
   let history = useHistory();
 
@@ -39,29 +39,29 @@ function PaymentMethod() {
             <div className="payment-div">
               <input
                 type="radio"
-                id="paypal"
-                value="PayPal"
+                id="online"
+                value="online"
                 name="paymentMethod"
                 required
                 checked
                 onChange={(e) => setPaymentMethod(e.target.value)}
               ></input>
-              <label htmlFor="paypal">
-                <FontAwesomeIcon icon={["fab", "paypal"]} />
-                PayPal
+              <label htmlFor="online">
+                {/* <FontAwesomeIcon icon={["fab", "paypal"]} /> */}
+                Online
               </label>
             </div>
 
             <div className="payment-div">
               <input
                 type="radio"
-                id="stripe"
-                value="Stripe"
+                id="cod"
+                value="Cash on delivery"
                 name="paymentMethod"
                 required
                 onChange={(e) => setPaymentMethod(e.target.value)}
               ></input>
-              <label htmlFor="stripe">Stripe</label>
+              <label htmlFor="cod">COD</label>
             </div>
 
             <div className="payment-div">

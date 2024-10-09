@@ -136,7 +136,7 @@ function Regis() {
                 </div>
                 <input
                   type="password"
-                  placeholder="12345678"
+                  placeholder="Admin123@"
                   value={password}
                   onChange={(e) => Setpassword(e.target.value)}
                 />
@@ -160,7 +160,7 @@ function Regis() {
                 className="butn solid"
                 onClick={SignIn}
               />
-              <p className="social-text">Or Sign in with social platforms</p>
+              {/* <p className="social-text">Or Sign in with social platforms</p>
               <div className="social-media">
                 <Link to="#" className="social-icon">
                   <FacebookIcon />
@@ -168,7 +168,7 @@ function Regis() {
                 <Link to="#" className="social-icon">
                   <FontAwesomeIcon icon={["fab", "google"]} />
                 </Link>
-              </div>
+              </div> */}
             </form>
 
             {/* 2nd sign up form */}
@@ -233,7 +233,7 @@ function Regis() {
                 className="butn solid"
                 onClick={Register}
               />
-              <p className="social-text">Or Sign up with social platforms</p>
+              {/* <p className="social-text">Or Sign up with social platforms</p>
               <div className="social-media">
                 <Link to="#" className="social-icon">
                   <FacebookIcon />
@@ -241,7 +241,7 @@ function Regis() {
                 <Link to="#" className="social-icon">
                   <FontAwesomeIcon icon={["fab", "google"]} />
                 </Link>
-              </div>
+              </div> */}
             </form>
           </div>
         </div>

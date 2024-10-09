@@ -73,15 +73,15 @@ function Ordered() {
       description: "Please do not share your account details with anyone.",
       image: "...",
       handler: function (response) {
-        alert(response.razorpay_payment_id);
-        alert(response.razorpay_order_id);
-        alert(response.razorpay_signature);
+        alert(
+          `payment of ${response.razorpay_payment_id} for order id : ${response.razorpay_order_id} is done with a signature of ${response.razorpay_signature}`
+        );
         successPaymentHandler();
       },
       prefill: {
-        name: "Souradeep Gharami",
-        email: "souradeepgharami2000@gmail.com",
-        phone_number: "9062027362",
+        name: userInfo.name,
+        email: userInfo.email,
+        phone_number: 9999999999,
       },
     };
     const paymentObject = new window.Razorpay(options);
@@ -249,7 +249,7 @@ function Ordered() {
                   </div>
                 </div>
               </li>
-              {!order.isPaid && (
+              {/* {!order.isPaid && (
                 <li>
                   {!sdkReady ? (
                     <LoadingDiv></LoadingDiv>
@@ -267,13 +267,13 @@ function Ordered() {
                     </>
                   )}
                 </li>
-              )}
+              )} */}
 
               {!order.isPaid ? (
                 <li>
-                  <li style={{ display: "flex", justifyContent: "center" }}>
+                  {/* <li style={{ display: "flex", justifyContent: "center" }}>
                     <strong>OR</strong>
-                  </li>
+                  </li> */}
                   {errorPay && (
                     <MessageDiv status="danger">{errorPay}</MessageDiv>
                   )}

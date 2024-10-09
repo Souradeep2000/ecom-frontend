@@ -28,7 +28,6 @@ function Navbar() {
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  console.log(userInfo);
 
   const dispatch = useDispatch();
 
@@ -41,8 +40,13 @@ function Navbar() {
   };
 
   const signoutHandler = () => {
-    dispatch(signout());
-    window.location.reload();
+    const confirmation = window.confirm("Are you sure you want to sign out?");
+    if (confirmation) {
+      dispatch(signout());
+      window.location.reload();
+    } else {
+      alert("Sticking around? Great choice!");
+    }
   };
 
   const handleSearch = () => {
@@ -107,14 +111,14 @@ function Navbar() {
               </div>
             )}
 
-            {userInfo && userInfo.isAdmin && (
+            {/* {userInfo && userInfo.isAdmin && (
               <div className="nav-bar-admin">
                 <Link to="#admin">
                   <VerifiedUserIcon className="VerifiedUserIcon" />
                   <span> ADMIN</span>
                 </Link>
               </div>
-            )}
+            )} */}
 
             <div className="cart">
               <Link to="/checkout">
@@ -142,39 +146,32 @@ function Navbar() {
 
             {userInfo ? (
               <>
-                <li className="nav-text" onClick={showProfDown}>
+                {/* <li className="nav-text" onClick={showProfDown}>
                   <Link to="#">
                     <PersonOutlineIcon />
                     {userInfo.name}
                   </Link>
-                </li>
-                {profDown && (
-                  <>
-                    <li className="nav-text">
-                      <Link to="/orderhistory">
-                        <CardGiftcardIcon style={{ color: "pink" }} />
-                        <span style={{ fontFamily: "monospace" }}> Orders</span>
-                      </Link>
-                    </li>
+                </li> */}
 
-                    <li className="nav-text">
-                      <Link to="/profileup">
-                        <PersonOutlineIcon style={{ color: "#007bff" }} />
-                        <span style={{ fontFamily: "monospace" }}>
-                          My Profile
-                        </span>
-                      </Link>
-                    </li>
-                    <li className="nav-text">
-                      <Link to="#signout" onClick={signoutHandler}>
-                        <ExitToAppRoundedIcon style={{ color: "red" }} />
-                        <span style={{ fontFamily: "monospace" }}>
-                          Sign Out
-                        </span>
-                      </Link>
-                    </li>
-                  </>
-                )}
+                <li className="nav-text">
+                  <Link to="/orderhistory">
+                    <CardGiftcardIcon style={{ color: "pink" }} />
+                    <span style={{ fontFamily: "monospace" }}> Orders</span>
+                  </Link>
+                </li>
+
+                <li className="nav-text">
+                  <Link to="/profileup">
+                    <PersonOutlineIcon style={{ color: "#007bff" }} />
+                    <span style={{ fontFamily: "monospace" }}>My Profile</span>
+                  </Link>
+                </li>
+                <li className="nav-text">
+                  <Link to="/" onClick={signoutHandler}>
+                    <ExitToAppRoundedIcon style={{ color: "red" }} />
+                    <span style={{ fontFamily: "monospace" }}>Sign Out</span>
+                  </Link>
+                </li>
               </>
             ) : (
               <li className="nav-text">
