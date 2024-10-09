@@ -1,0 +1,10 @@
+/* 1st carrousel */
+.box1 {
+  background: linear-gradient(#e66465, #9198e5);
+  height: 350px;
+  margin-bottom: 10px;
+}
+.box1 img {
+  height: fit-content;
+  width: fit-content;
+}
