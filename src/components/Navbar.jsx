@@ -28,7 +28,7 @@ function Navbar() {
 
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
-  console.log(userInfo)
+  console.log(userInfo);
 
   const dispatch = useDispatch();
 
@@ -93,7 +93,7 @@ function Navbar() {
           <div className="right-bar">
             {userInfo ? (
               <div className="nav-bar-profile">
-                <Link to="#">
+                <Link to="/profileup">
                   <PersonOutlineIcon className="PersonOutlineIcon" />
                   {userInfo.name}
                 </Link>

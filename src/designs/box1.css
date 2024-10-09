@@ -1,5 +1,5 @@
 /* 1st carrousel */
-.box1 {
+/* .box1 {
   background: linear-gradient(#e66465, #9198e5);
   height: 350px;
   margin-bottom: 10px;
@@ -7,4 +7,23 @@
 .box1 img {
   height: fit-content;
   width: fit-content;
+} */
+
+/* 1st carousel */
+.box1 {
+  /* background: linear-gradient(#e66465, #9198e5); */
+  height: 350px; /* You can keep this fixed height or make it responsive */
+  margin-bottom: 10px;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center images vertically */
+  justify-content: center; /* Center images horizontally */
+  overflow: hidden; /* Hide overflow if images are too large */
+  /* padding: 5px; Add padding for better spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add some shadow for depth */
+  border-radius: 10px; /* Optional: add rounded corners */
+}
+
+.box1 img {
+  width: 100%; /* Makes sure the image scales to fit horizontally */
+  height: auto; /* Maintains the aspect ratio */
 }

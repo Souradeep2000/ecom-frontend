@@ -20,6 +20,7 @@
   margin-bottom: 10px;
   transition: 0.3s;
   border: 1px solid palevioletred;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 .product:hover {
   transform: scale(1.05);
