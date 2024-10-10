@@ -82,6 +82,9 @@ function Ordered() {
         name: userInfo.name,
         email: userInfo.email,
         phone_number: 9999999999,
+        method: "card",
+        "card[number]": "4111111111111111", // Dummy Visa card number (Razorpay test card)
+        "card[expiry]": "12/26",
       },
     };
     const paymentObject = new window.Razorpay(options);

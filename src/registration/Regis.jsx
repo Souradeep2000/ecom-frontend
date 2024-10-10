@@ -57,18 +57,28 @@ function Regis() {
 
   const Register = (e) => {
     e.preventDefault();
-    if (username.length < 5 || regemail.length < 10) {
-      return alert("Your name or email to short!");
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(regemail)) {
+      return alert("Invalid email");
     }
 
-    if (regpassword.length > 6) {
+    if (
+      regpassword.length > 6 &&
+      /[A-Z]/.test(regpassword) &&
+      /[a-z]/.test(regpassword) &&
+      /\d/.test(regpassword) &&
+      /[!@#$%^&*(),.?":{}|<>]/.test(regpassword)
+    ) {
       if (regpassword !== regConfirmpassword) {
         alert("Password should match with Confirm Password");
       } else {
         dispatch(register(username, regemail, regpassword));
       }
     } else {
-      alert("Password is too weak to set");
+      alert(
+        "Password is too weak to set [your password should have minimum 1 uppercase & 1 lowercase & 1 digit & 1 special character]"
+      );
     }
   };
 
