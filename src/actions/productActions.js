@@ -8,18 +8,22 @@ import {
   PRODUCT_LIST_SUCCESS,
 } from "../constants/productConstants";
 
-export const listProducts = () => async (dispatch) => {
-  dispatch({
-    type: PRODUCT_LIST_REQUEST,
-  });
+export const listProducts =
+  (limit = 5, page = 1) =>
+  async (dispatch) => {
+    dispatch({
+      type: PRODUCT_LIST_REQUEST,
+    });
 
-  try {
-    const response = await axios.get("/cardUpload");
-    dispatch({ type: PRODUCT_LIST_SUCCESS, payload: response.data.products });
-  } catch (err) {
-    dispatch({ type: PRODUCT_LIST_FAIL, payload: err.message });
-  }
-};
+    try {
+      const response = await axios.get(
+        `/cardUpload?limit=${limit}&page=${page}`
+      );
+      dispatch({ type: PRODUCT_LIST_SUCCESS, payload: response.data.products });
+    } catch (err) {
+      dispatch({ type: PRODUCT_LIST_FAIL, payload: err.message });
+    }
+  };
 
 export const detailsProduct = (productId) => async (dispatch) => {
   dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId });

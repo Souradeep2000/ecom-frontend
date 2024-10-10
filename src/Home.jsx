@@ -10,6 +10,9 @@ import Footer from "./components/Footer";
 import MessageDiv from "./components/MessageDiv";
 import LoadingDiv from "./components/LoadingDiv";
 
+const LazyCarousel = React.lazy(() => import("./components/Carousel"));
+const LazyFooter = React.lazy(() => import("./components/Footer"));
+
 function createCard(individualCard) {
   return (
     <Card
@@ -33,8 +36,8 @@ function Home() {
 
   //getting the data from a route
   useEffect(() => {
-    dispatch(listProducts());
-  }, []);
+    dispatch(listProducts(7, 1));
+  }, [dispatch]);
 
   return (
     <div>
@@ -50,11 +53,13 @@ function Home() {
           </div>
 
           <div className="home__container">
-            <div className="home__row">{card.slice(0, 7).map(createCard)}</div>
+            <div className="home__row">{card.map(createCard)}</div>
           </div>
-
           <Carousel />
-          <Footer />
+          <React.Suspense fallback={<LoadingDiv />}>
+            {/* <LazyCarousel /> */}
+            <LazyFooter />
+          </React.Suspense>
         </div>
       )}
     </div>

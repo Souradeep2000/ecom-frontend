@@ -38,7 +38,7 @@ function Carousel() {
 
   useEffect(() => {
     async function fetchCarousel() {
-      const response = await axios.get("/cardUpload");
+      const response = await axios.get(`/cardUpload?limit=7&page=2`);
       if (isMountedRef.current) {
         Setcarouselcard(response.data.products);
       }
@@ -60,7 +60,7 @@ function Carousel() {
 
   return (
     <div className="container" style={{ marginBottom: "40px" }}>
-      <Slider {...settings}>{carouselCard.slice(7).map(createCard)}</Slider>
+      <Slider {...settings}>{carouselCard.map(createCard)}</Slider>
     </div>
   );
 }
